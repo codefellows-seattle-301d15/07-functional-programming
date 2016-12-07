@@ -69,18 +69,21 @@
     // NOTE: Grab the word count from each article body.
       return article.body.split(' ').length;
     })
-    // TODO: complete this reduce to get a grand total word count
-    .reduce(function() {
+    // TODONE: complete this reduce to get a grand total word count
+    .reduce(function(a, b) {
+      return a + b;
     });
   };
 
   /* Chain together a `map` and a `reduce` call to
           produce an array of *unique* author names. */
   Article.allAuthors = function() {
-  //return       TODO: map our collection
-    //return    TODO: return just the author names
-
-  /* TODO: For our reduce that we'll chain here -- since we are trying to
+    return Article.allArticles.map(function(curArticle) {
+      return curArticle.author;
+    }).filter(function(author, index, array){
+      return array.indexOf(author) === index;
+    });
+  /* TODONE: For our reduce that we'll chain here -- since we are trying to
       return an array, we'll need to specify an accumulator type (AKA initial value)
       What should this accumulator be and where is it placed? */
   };
@@ -90,6 +93,7 @@
       One for the author's name, and one for the total number of words across
       the matching articles written by the specified author. */
     return Article.allAuthors().map(function(author) {
+      // first we'll have an array of unique author names then use map to create a new array
       return {
       /* TODO: complete these properties:
       name:
