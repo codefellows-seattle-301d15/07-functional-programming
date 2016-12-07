@@ -2,7 +2,7 @@
 // NOTE: Let's wrap the entire contents of this file in an IIFE.
 // Pass in to the IIFE a module, upon which objects can be attached for later access.
 
-  // Configure a view object, to hold all our functions for dynamic updates and article-related event handlers.
+  // Configure a view object, to hold all our functions for dynamic updates and article-related event handlers. aa
   var articleView = {};
 
   articleView.handleAuthorFilter = function() {
@@ -73,7 +73,7 @@
     articleView.handleMainNav();
     articleView.setTeasers();
   };
-  
+
   Article.fetchAll(articleView.renderIndexPage);
 
   module.articleView = articleView;
