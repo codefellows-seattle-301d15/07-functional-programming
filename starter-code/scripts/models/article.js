@@ -108,7 +108,7 @@
           return a + b;
         })
       // .map(...) // TODONE: use .map to return the author's word count for each article's body.
-      // .reduce(...) // TODONE: squash this array of numbers into one big number!
+      /// .reduce(...) // TODONE: squash this array of numbers into one big number!
       };
     });
   };
