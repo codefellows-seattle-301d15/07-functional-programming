@@ -69,9 +69,10 @@
     // NOTE: Grab the word count from each article body.
       return article.body.split(' ').length;
     })
-    // TODO: complete this reduce to get a grand total word count
-    .reduce(function() {
-    });
+    // TODONE: complete this reduce to get a grand total word count
+     .reduce(function(prev, cur) {
+       return prev + cur;
+     });
   };
 
   /* Chain together a `map` and a `reduce` call to
