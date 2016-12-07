@@ -93,20 +93,22 @@
       What should this accumulator be and where is it placed? */
   };
 
-  Article.numWordsByAuthor = function() {
   /*  Transform each author element into an object with 2 properties:
-      One for the author's name, and one for the total number of words across
-      the matching articles written by the specified author. */
+  One for the author's name, and one for the total number of words across
+  the matching articles written by the specified author. */
+  Article.numWordsByAuthor = function() {
     return Article.allAuthors().map(function(author) {
       return {
-      /* TODO: complete these properties:
-      name:
-      numWords: someCollection.filter(function(curArticle) {
-       return a condition here to check for matching authors
-      })
-      .map(...) // TODO: use .map to return the author's word count for each article's body.
-      .reduce(...) // TODO: squash this array of numbers into one big number!
-      */
+        name: author,
+        numWords: Article.allArticles.filter(function(curArticle) {
+          return curArticle.author === author;
+        }).map(function(article){
+          return article.body.split(' ').length;
+        }).reduce(function(a, b){
+          return a + b;
+        })
+      // .map(...) // TODONE: use .map to return the author's word count for each article's body.
+      // .reduce(...) // TODONE: squash this array of numbers into one big number!
       };
     });
   };
