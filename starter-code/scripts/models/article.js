@@ -81,12 +81,12 @@
     return Article.allArticles.map(function(article) {
       return article.author;
     })
-  //return       TODO: map our collection
-    //return    TODO: return just the author names
+  //return       TODONE: map our collection
+    //return    TODONE: return just the author names
     .filter(function(ele, index, array) {
       return array.indexOf(ele) === index;
     });
-  /* TODO: For our reduce that we'll chain here -- since we are trying to
+  /* TODONE: For our reduce that we'll chain here -- since we are trying to
       return an array, we'll need to specify an accumulator type (AKA initial value)
       What should this accumulator be and where is it placed? */
   };
@@ -97,6 +97,16 @@
       the matching articles written by the specified author. */
     return Article.allAuthors().map(function(author) {
       return {
+        name: author,
+        numWords: Article.allArticles.filter(function(current){
+          return current.author === author;
+        })
+        .map(function(article){
+          return article.body.split(' ').length;
+        })
+        .reduce(function(current, previous){
+          return current + previous;
+        })
       /* TODO: complete these properties:
       name:
       numWords: someCollection.filter(function(curArticle) {
