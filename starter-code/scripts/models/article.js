@@ -71,8 +71,9 @@
     })
     // TODO: complete this reduce to get a grand total word count
     .reduce(function(a, b) {
-      return a + b;
-      console.log(a + b);
+      var sum = a + b;
+      // console.log(sum);
+      return sum;
     });
   };
 
@@ -80,7 +81,12 @@
           produce an array of *unique* author names. */
   Article.allAuthors = function() {
   //return       TODO: map our collection
-    //return    TODO: return just the author names
+  //return    TODO: return just the author names
+    return Article.allArticles.map(function(article){
+      return article.author;
+    }).filter(function(author, index, array){
+      return array.indexOf(author) === index;
+    });
 
   /* TODO: For our reduce that we'll chain here -- since we are trying to
       return an array, we'll need to specify an accumulator type (AKA initial value)
