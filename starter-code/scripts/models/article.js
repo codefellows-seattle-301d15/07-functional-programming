@@ -95,13 +95,20 @@
     return Article.allAuthors().map(function(author) {
       // first we'll have an array of unique author names then use map to create a new array
       return {
-      /* TODO: complete these properties:
-      name:
-      numWords: someCollection.filter(function(curArticle) {
-       return a condition here to check for matching authors
+      /* TODO: complete these properties:*/
+
+        name: author,
+        numWords: Article.allArticles.filter(function(curArticle) {
+          return curArticle.author === author;
+        })
+      .map(function(article) {
+        return article.body.split(' ').length;
       })
-      .map(...) // TODO: use .map to return the author's word count for each article's body.
-      .reduce(...) // TODO: squash this array of numbers into one big number!
+      .reduce(function(a, b) {
+        return a + b;
+      })
+      // TODO: use .map to return the author's word count for each article's body.
+      /*.reduce(...) // TODO: squash this array of numbers into one big number!
       */
       };
     });
