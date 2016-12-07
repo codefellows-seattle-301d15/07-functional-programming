@@ -70,7 +70,9 @@
       return article.body.split(' ').length;
     })
     // TODO: complete this reduce to get a grand total word count
-    .reduce(function() {
+    .reduce(function(a, b) {
+      return a + b;
+      console.log(a + b);
     });
   };
 
